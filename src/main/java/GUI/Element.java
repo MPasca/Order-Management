@@ -1,0 +1,23 @@
+package GUI;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+
+public class Element {
+    public ArrayList<Color> colours = new ArrayList<>();
+    public ArrayList<Font> fonts = new ArrayList<>();
+
+    public Element(){
+        colours.add(Color.decode("#8B5D33"));   // coyote brown
+        colours.add(Color.decode("#91785D"));   // pale chestnut
+        colours.add(Color.decode("#869D7A"));   // artichoke
+        colours.add(Color.decode("#A7CDBD"));   // cambridge blue
+        colours.add(Color.decode("#BBE1C3"));   // turquoise green
+
+        fonts.add(new Font("Courier new", Font.BOLD, 20));      // button_main
+        fonts.add(new Font("Courier new", Font.PLAIN, 14));     // labels/texts
+        fonts.add(new Font("Courier new", Font.BOLD, 16));      // subtitles(?)
+        fonts.add(new Font("Courier new", Font.BOLD, 40));      // title
+    }
+}
