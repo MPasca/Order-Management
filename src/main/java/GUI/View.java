@@ -1,5 +1,7 @@
 package GUI;
 
+import com.sun.security.auth.module.JndiLoginModule;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -23,22 +25,25 @@ public class View {
     JButton btnAddClient = new JButton("Add client");
     JButton btnRemoveClient = new JButton("Remove client");
     JButton btnEditClient = new JButton("Edit client");
+    JButton btnViewClient = new JButton("View clients");
 
     JPanel productPanel = new JPanel();
     JLabel lblProductTitle = new JLabel("Products menu");
     JButton btnAddProduct = new JButton("Add product");
     JButton btnRemoveProduct = new JButton("Remove product");
     JButton btnEditProduct = new JButton("Edit product");
+    JButton btnViewProduct = new JButton("View products");
 
     JPanel orderPanel = new JPanel();
     JLabel lblOrderTitle = new JLabel("Orders menu");
     JButton btnAddOrder = new JButton("Add order");
     JButton btnRemoveOrder = new JButton("Remove order");
     JButton btnEditOrder = new JButton("Edit order");
+    JButton btnViewOrder = new JButton("View orders");
 
     public View(){
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(460, 280);
+        //mainFrame.setSize(460, 280);
 
         mainFrame.setBackground(element.colours.get(4));
 
@@ -113,12 +118,19 @@ public class View {
         btnEditClient.setFont(element.fonts.get(0));
         btnEditClient.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnViewClient.setBackground(element.colours.get(3));
+        btnViewClient.setForeground(element.colours.get(1));
+        btnViewClient.setFont(element.fonts.get(0));
+        btnViewClient.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         clientPanel.add(lblClientTitle);
         clientPanel.add(btnAddClient);
         clientPanel.add(new JLabel(" "));
         clientPanel.add(btnRemoveClient);
         clientPanel.add(new JLabel(" "));
         clientPanel.add(btnEditClient);
+        clientPanel.add(new JLabel(" "));
+        clientPanel.add(btnViewClient);
         clientPanel.add(new JLabel(" "));
         clientPanel.add(btnClientBack);
         clientPanel.add(new JLabel(" "));
@@ -148,12 +160,19 @@ public class View {
         btnEditProduct.setFont(element.fonts.get(0));
         btnEditProduct.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnViewProduct.setBackground(element.colours.get(3));
+        btnViewProduct.setForeground(element.colours.get(1));
+        btnViewProduct.setFont(element.fonts.get(0));
+        btnViewProduct.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         productPanel.add(lblProductTitle);
         productPanel.add(btnAddProduct);
         productPanel.add(new JLabel(" "));
         productPanel.add(btnRemoveProduct);
         productPanel.add(new JLabel(" "));
         productPanel.add(btnEditProduct);
+        productPanel.add(new JLabel(" "));
+        productPanel.add(btnViewProduct);
         productPanel.add(new JLabel(" "));
         productPanel.add(btnProductBack);
         productPanel.add(new JLabel(" "));
@@ -184,12 +203,19 @@ public class View {
         btnEditOrder.setFont(element.fonts.get(0));
         btnEditOrder.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnViewOrder.setBackground(element.colours.get(3));
+        btnViewOrder.setForeground(element.colours.get(1));
+        btnViewOrder.setFont(element.fonts.get(0));
+        btnViewOrder.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         orderPanel.add(lblOrderTitle);
         orderPanel.add(btnAddOrder);
         orderPanel.add(new JLabel(" "));
         orderPanel.add(btnRemoveOrder);
         orderPanel.add(new JLabel(" "));
         orderPanel.add(btnEditOrder);
+        orderPanel.add(new JLabel(" "));
+        orderPanel.add(btnViewOrder);
         orderPanel.add(new JLabel(" "));
         orderPanel.add(btnOrderBack);
         orderPanel.add(new JLabel(" "));
@@ -209,6 +235,7 @@ public class View {
         orderPanel.setVisible(false);
 
         mainFrame.getContentPane().setLayout(new BoxLayout(mainFrame.getContentPane(), BoxLayout.PAGE_AXIS));
+        mainFrame.pack();
         mainFrame.setVisible(true);
     }
 
@@ -236,7 +263,55 @@ public class View {
         btnOrderBack.addActionListener(actionListener);
     }
 
+
     public void addAddClientListener(ActionListener actionListener){
         btnAddClient.addActionListener(actionListener);
     }
+
+    public void addRemoveClientListener(ActionListener actionListener){
+        btnRemoveClient.addActionListener(actionListener);
+    }
+
+    public void addEditClientListener(ActionListener actionListener){
+        btnEditClient.addActionListener(actionListener);
+    }
+
+    public void addViewClientListener(ActionListener actionListener){
+        btnViewClient.addActionListener(actionListener);
+    }
+
+
+    public void addAddProductListener(ActionListener actionListener){
+        btnAddProduct.addActionListener(actionListener);
+    }
+
+    public void addRemoveProductListener(ActionListener actionListener){
+        btnRemoveProduct.addActionListener(actionListener);
+    }
+
+    public void addEditProductListener(ActionListener actionListener){
+        btnEditProduct.addActionListener(actionListener);
+    }
+
+    public void addViewProductListener(ActionListener actionListener){
+        btnViewProduct.addActionListener(actionListener);
+    }
+
+
+    public void addAddOrderListener(ActionListener actionListener){
+        btnAddOrder.addActionListener(actionListener);
+    }
+
+    public void addRemoveOrderListener(ActionListener actionListener){
+        btnRemoveOrder.addActionListener(actionListener);
+    }
+
+    public void addEditOrderListener(ActionListener actionListener){
+        btnEditOrder.addActionListener(actionListener);
+    }
+
+    public void addViewOrderListener(ActionListener actionListener){
+        btnViewOrder.addActionListener(actionListener);
+    }
+
 }

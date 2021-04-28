@@ -167,13 +167,13 @@ public class OrderDAO {
         return order.getId();
     }
 
-    public static int deleteOrder(Order order){
+    public static int deleteOrder(int orderID){
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement deleteStatement = null;
 
         try {
             deleteStatement = dbConnection.prepareStatement(deleteStatementString, Statement.RETURN_GENERATED_KEYS);
-            deleteStatement.setInt(1, order.getId());
+            deleteStatement.setInt(1, orderID);
             deleteStatement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, "OrderDAO:delete " + e.getMessage());
@@ -182,7 +182,7 @@ public class OrderDAO {
             ConnectionFactory.close(dbConnection);
         }
 
-        return order.getId();
+        return orderID;
     }
 
     public static List<Order> showAllOrders(){

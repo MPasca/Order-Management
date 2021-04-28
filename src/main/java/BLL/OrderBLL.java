@@ -69,8 +69,8 @@ public class OrderBLL {
         return OrderDAO.updateOrder(order);
     }
 
-    public int deleteOrder(Order order){
-        return OrderDAO.deleteOrder(order);
+    public int deleteOrder(int orderID){
+        return OrderDAO.deleteOrder(orderID);
     }
 
     public List<Order> showAllOrders(){

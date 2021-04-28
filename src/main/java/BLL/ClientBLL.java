@@ -53,8 +53,8 @@ public class ClientBLL {
         return ClientDAO.updateClient(client);
     }
 
-    public int deleteClient(Client client){
-        return ClientDAO.deleteClient(client);
+    public int deleteClient(int clientID){
+        return ClientDAO.deleteClient(clientID);
     }
 
     public List<Client> showAllClients(){

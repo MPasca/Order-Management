@@ -48,11 +48,12 @@ public class ProductBLL {
         return ProductDAO.updateProduct(product);
     }
 
-    public int deleteProduct(Product product){
-        return ProductDAO.deleteProduct(product);
+    public int deleteProduct(int productId){
+        return ProductDAO.deleteProduct(productId);
     }
 
-    public List<Product> showAllProduct(){
+    public List<Product> showAllProducts(){
         return ProductDAO.showAllProducts();
     }
+
 }

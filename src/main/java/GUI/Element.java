@@ -16,8 +16,9 @@ public class Element {
         colours.add(Color.decode("#BBE1C3"));   // turquoise green
 
         fonts.add(new Font("Courier new", Font.BOLD, 20));      // button_main
-        fonts.add(new Font("Courier new", Font.PLAIN, 14));     // labels/texts
+        fonts.add(new Font("Courier new", Font.PLAIN, 16));     // labels/texts
         fonts.add(new Font("Courier new", Font.BOLD, 16));      // subtitles(?)
         fonts.add(new Font("Courier new", Font.BOLD, 40));      // title
+        fonts.add(new Font("Courier new", Font.PLAIN, 12));
     }
 }

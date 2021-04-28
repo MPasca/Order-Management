@@ -133,14 +133,14 @@ public class ProductDAO {
         return product.getId();
     }
 
-    public static int deleteProduct(Product product){
+    public static int deleteProduct(int productId){
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement deleteStatement = null;
 
         try {
             deleteStatement = dbConnection.prepareStatement(deleteStatementString, Statement.RETURN_GENERATED_KEYS);
-            System.out.println("product id: " + product.getId());
-            deleteStatement.setInt(1, product.getId());
+            System.out.println("product id: " + productId);
+            deleteStatement.setInt(1, productId);
             deleteStatement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, "ProductDAO:delete " + e.getMessage());
@@ -149,7 +149,7 @@ public class ProductDAO {
             ConnectionFactory.close(dbConnection);
         }
 
-        return product.getId();
+        return productId;
     }
 
     public static List<Product> showAllProducts(){

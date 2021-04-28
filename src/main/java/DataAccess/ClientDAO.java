@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ClientDAO {
+public class ClientDAO extends AbstractDAO<Client>{
     protected static final Logger LOGGER = Logger.getLogger(ClientDAO.class.getName());
     private static final String insertStatementString = "INSERT INTO clients (name, email, address, telephone)"
                                                             + " VALUES (?,?,?,?)";
@@ -87,6 +87,7 @@ public class ClientDAO {
         return toReturn;
     }
 
+
     public static int insertClient(Client client){
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement insertStatement = null;
@@ -114,6 +115,7 @@ public class ClientDAO {
         return insertedId;
     }
 
+
     public static int updateClient(Client client){
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement updateStatement = null;
@@ -137,13 +139,13 @@ public class ClientDAO {
         return client.getID();
     }
 
-    public static int deleteClient(Client client){
+    public static int deleteClient(int clientID){
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement deleteStatement = null;
 
         try {
             deleteStatement = dbConnection.prepareStatement(deleteStatementString, Statement.RETURN_GENERATED_KEYS);
-            deleteStatement.setInt(1, client.getID());
+            deleteStatement.setInt(1, clientID);
             deleteStatement.executeUpdate();
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, "ClientDAO:delete " + e.getMessage());
@@ -152,7 +154,7 @@ public class ClientDAO {
             ConnectionFactory.close(dbConnection);
         }
 
-        return client.getID();
+        return clientID;
     }
 
     public static List<Client> showAllClients(){
