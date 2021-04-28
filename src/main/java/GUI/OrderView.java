@@ -18,7 +18,7 @@ public class OrderView {
     JLabel lblAddTitle = new JLabel("Add Order");
 
     JLabel lblAddClientId = new JLabel("Client Id:");
-    JTextField txtAddClientId = new JTextField(25);
+    JComboBox<Integer> cmbClients = new JComboBox<>();
     JLabel lblAddProductId = new JLabel("Product Id:");
     JComboBox<Integer> cmbProducts = new JComboBox<>();
     JLabel lblAddQuantity = new JLabel("Quantity:");
