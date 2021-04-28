@@ -40,6 +40,7 @@ public class OrderController {
 
         Order newOrder = new Order(orderClientId, orderProductId, orderQuantity);
         int orderId = orderBLL.insertOrder(newOrder);
+
         JOptionPane.showMessageDialog(orderView.panelAdd, "The order with id: " + orderId + " has been added to the DataBase.");
     }
 

@@ -5,8 +5,14 @@ import BLL.Validators.ProductIDValidator;
 import BLL.Validators.QuantityValidator;
 import BLL.Validators.Validator;
 import DataAccess.OrderDAO;
+import Model.Client;
 import Model.Order;
+import Model.Product;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -55,7 +61,46 @@ public class OrderBLL {
         QuantityValidator quantityValidator = new QuantityValidator();
         quantityValidator.validate(order);
 
-        return OrderDAO.insertOrder(order);
+        int orderID = OrderDAO.insertOrder(order);
+        order.setId(orderID);
+        try {
+            printReceipt(order, orderID);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return orderID;
+    }
+
+    FileWriter receipt;
+
+    private void printReceipt(Order order, int orderID) throws IOException{
+        receipt = new FileWriter("Receipt_" + orderID + ".txt");
+        ClientBLL clientBLL = new ClientBLL();
+        Client orderingClient = clientBLL.findClientByID(order.getClientID());
+
+        ProductBLL productBLL = new ProductBLL();
+        Product orderedProduct = productBLL.findProductByID(order.getProductID());
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        receipt.write("DATE: " + date.format(LocalDateTime.now()) + "\n");
+        receipt.write("\n");
+
+        receipt.write("Order " + order.getId());
+        receipt.write(" _________________ ");
+        receipt.write("ClientID: " + order.getClientID() + "\n");
+        receipt.write("\t Name: " + orderingClient.getName() + "\n");
+        receipt.write("\t Email: " + orderingClient.getEmail() + "\n");
+        receipt.write("\t Address: " + orderingClient.getAddress() +  "\n");
+        receipt.write("\t Telephone: " + orderingClient.getTelephone() +"\n");
+        receipt.write("\n");
+
+        receipt.write("Bought:\n");
+        receipt.write(order.getProductID() + " _______________________ x" + order.getQuantity() + "\n");
+        receipt.write(orderedProduct.getName() + " _____________ " + orderedProduct.getPrice() + "\n");
+        receipt.write("\n");
+        receipt.write("_________________________________________\n");
+        receipt.write("TOTAL: " + order.getQuantity() * orderedProduct.getPrice() + "\n");
+        receipt.close();
     }
 
     public int updateOrder(Order order){
