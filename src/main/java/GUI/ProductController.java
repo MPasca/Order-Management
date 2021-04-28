@@ -2,7 +2,6 @@ package GUI;
 
 
 import BLL.ProductBLL;
-import Model.Client;
 import Model.Product;
 
 import javax.swing.*;
@@ -19,6 +18,7 @@ public class ProductController {
         this.productView = ProductView;
         this.productView.btnAdd.addActionListener(new AddListener());
         this.productView.btnRemove.addActionListener(new DeleteListener());
+        this.productView.btnUpdate.addActionListener(new UpdateListener());
     }
 
     public void addProduct() throws ExceptionIncorrectInput{

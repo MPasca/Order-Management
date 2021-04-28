@@ -20,7 +20,7 @@ public class OrderView {
     JLabel lblAddClientId = new JLabel("Client Id:");
     JTextField txtAddClientId = new JTextField(25);
     JLabel lblAddProductId = new JLabel("Product Id:");
-    JTextField txtAddProductId = new JTextField(25);
+    JComboBox<Integer> cmbProducts = new JComboBox<>();
     JLabel lblAddQuantity = new JLabel("Quantity:");
     JTextField txtAddQuantity = new JTextField(25);
 
@@ -69,15 +69,13 @@ public class OrderView {
         lblAddClientId.setFont(element.fonts.get(2));
         lblAddClientId.setAlignmentY(JLabel.CENTER_ALIGNMENT);
 
-        txtAddClientId.setColumns(30);
-        txtAddClientId.setFont(element.fonts.get(1));
-        txtAddClientId.setMaximumSize(new Dimension(600, 40));
-        txtAddClientId.setAlignmentY(JTextField.CENTER_ALIGNMENT);
+        cmbClients.setFont(element.fonts.get(1));
+        cmbClients.setMaximumSize(new Dimension(100, 40));
 
         JPanel panelClientId = new JPanel();
             panelClientId.setBackground(element.colours.get(4));
             panelClientId.add(lblAddClientId);
-            panelClientId.add(txtAddClientId);
+            panelClientId.add(cmbClients);
             panelClientId.setBorder(new EmptyBorder(0, 30, 10 ,30));
 
         lblAddQuantity.setForeground(element.colours.get(0));
@@ -89,6 +87,7 @@ public class OrderView {
         txtAddQuantity.setMaximumSize(new Dimension(600, 40));
         txtAddQuantity.setAlignmentY(JTextField.CENTER_ALIGNMENT);
 
+
         JPanel panelQuantity = new JPanel();
             panelQuantity.setBackground(element.colours.get(4));
             panelQuantity.add(lblAddQuantity);
@@ -99,15 +98,13 @@ public class OrderView {
         lblAddProductId.setFont(element.fonts.get(2));
         lblAddProductId.setAlignmentY(JLabel.CENTER_ALIGNMENT);
 
-        txtAddProductId.setColumns(30);
-        txtAddProductId.setFont(element.fonts.get(1));
-        txtAddProductId.setMaximumSize(new Dimension(600, 40));
-        txtAddProductId.setAlignmentY(JTextField.CENTER_ALIGNMENT);
+        cmbProducts.setFont(element.fonts.get(1));
+        cmbProducts.setMaximumSize(new Dimension(100, 40));
 
         JPanel panelProductId = new JPanel(new FlowLayout());
             panelProductId.setBackground(element.colours.get(4));
             panelProductId.add(lblAddProductId);
-            panelProductId.add(txtAddProductId);
+            panelProductId.add(cmbProducts);
             panelProductId.setBorder(new EmptyBorder(0, 30, 10 ,30));
 
         btnAdd.setBackground(element.colours.get(3));
@@ -117,8 +114,8 @@ public class OrderView {
 
         panelAdd.add(lblAddTitle);
         panelAdd.add(panelClientId);
-        panelAdd.add(panelQuantity);
         panelAdd.add(panelProductId);
+        panelAdd.add(panelQuantity);
         panelAdd.add(btnAdd);
         panelAdd.add(new JLabel(" "));
         panelAdd.setLayout(new BoxLayout(panelAdd, BoxLayout.Y_AXIS));

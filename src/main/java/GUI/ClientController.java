@@ -5,11 +5,9 @@ import BLL.ClientBLL;
 import Model.Client;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ClientController {
@@ -20,6 +18,7 @@ public class ClientController {
         this.clientView = clientView;
         this.clientView.btnAdd.addActionListener(new AddListener());
         this.clientView.btnRemove.addActionListener(new DeleteListener());
+        this.clientView.btnUpdate.addActionListener(new UpdateListener());
     }
 
     public void addClient() throws ExceptionIncorrectInput{

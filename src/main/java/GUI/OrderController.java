@@ -1,9 +1,9 @@
 package GUI;
 
 
-import BLL.OrderBLL;
-import Model.Order;
-import Model.Product;
+import BLL.*;
+import Model.*;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -19,27 +19,44 @@ public class OrderController {
         this.orderView = orderView;
         this.orderView.btnAdd.addActionListener(new AddListener());
         this.orderView.btnRemove.addActionListener(new DeleteListener());
+        this.orderView.btnUpdate.addActionListener(new UpdateListener());
     }
 
     public void addOrder() throws ExceptionIncorrectInput{
-        if(orderView.txtAddClientId.getText().isEmpty()){
+        if(orderView.cmbClients.getSelectedItem().equals("")){
             throw new ExceptionIncorrectInput(orderView.panelAdd, "orderView", "orderClientId");
         }
-        int orderClientId = Integer.parseInt(orderView.txtAddClientId.getText());
+        int orderClientId = (int) orderView.cmbClients.getSelectedItem();
+
+        if(orderView.cmbProducts.getSelectedItem().equals("")){
+            throw new ExceptionIncorrectInput(orderView.panelAdd, "orderView", "orderProductId");
+        }
+        int orderProductId = (int) orderView.cmbProducts.getSelectedItem();
 
         if(orderView.txtAddQuantity.getText().isEmpty()){
             throw new ExceptionIncorrectInput(orderView.panelAdd,"orderView", "orderQuantity");
         }
         int orderQuantity = Integer.parseInt(orderView.txtAddQuantity.getText());
 
-        if(orderView.txtAddProductId.getText().isEmpty()){
-            throw new ExceptionIncorrectInput(orderView.panelAdd, "orderView", "orderProductId");
-        }
-        int orderProductId = Integer.parseInt(orderView.txtAddProductId.getText());
-
         Order newOrder = new Order(orderClientId, orderProductId, orderQuantity);
         int orderId = orderBLL.insertOrder(newOrder);
         JOptionPane.showMessageDialog(orderView.panelAdd, "The order with id: " + orderId + " has been added to the DataBase.");
+    }
+
+    public void generateComboBoxes(){
+        orderView.cmbClients.removeAllItems();
+        ClientBLL clientBLL = new ClientBLL();
+        List<Client> clientList = clientBLL.showAllClients();
+        for(Client c: clientList){
+            orderView.cmbClients.addItem(c.getID());
+        }
+
+        orderView.cmbProducts.removeAllItems();
+        ProductBLL productBLL = new ProductBLL();
+        List<Product> productList = productBLL.showAllProducts();
+        for(Product p: productList){
+            orderView.cmbProducts.addItem(p.getId());
+        }
     }
 
     class AddListener implements ActionListener{

@@ -35,7 +35,7 @@ public class Controller {
     class ClientListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.mainFrame.setSize(new Dimension(460, 330));
+            view.mainFrame.setSize(new Dimension(460, 380));
             view.clientPanel.setVisible(true);
             view.mainPanel.setVisible(false);
         }
@@ -44,7 +44,7 @@ public class Controller {
     class ProductListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.mainFrame.setSize(new Dimension(460, 330));
+            view.mainFrame.setSize(new Dimension(460, 380));
             view.productPanel.setVisible(true);
             view.mainPanel.setVisible(false);
         }
@@ -53,7 +53,7 @@ public class Controller {
     class OrderListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.mainFrame.setSize(new Dimension(460, 330));
+            view.mainFrame.setSize(new Dimension(460, 380));
             view.orderPanel.setVisible(true);
             view.mainPanel.setVisible(false);
         }
@@ -191,7 +191,7 @@ public class Controller {
             orderView.panelRemove.setVisible(false);
             orderView.panelView.setVisible(false);
             OrderController orderController = new OrderController(orderView);
-            orderController.showAll();
+            orderController.generateComboBoxes();
         }
     }
 

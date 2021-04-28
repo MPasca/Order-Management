@@ -43,7 +43,7 @@ public class View {
 
     public View(){
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //mainFrame.setSize(460, 280);
+        mainFrame.setSize(460, 280);
 
         mainFrame.setBackground(element.colours.get(4));
 
@@ -235,7 +235,6 @@ public class View {
         orderPanel.setVisible(false);
 
         mainFrame.getContentPane().setLayout(new BoxLayout(mainFrame.getContentPane(), BoxLayout.PAGE_AXIS));
-        mainFrame.pack();
         mainFrame.setVisible(true);
     }
 
