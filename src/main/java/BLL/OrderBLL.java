@@ -19,6 +19,7 @@ import java.util.NoSuchElementException;
 
 public class OrderBLL {
     private List<Validator<Order>> validators;
+    OrderDAO orderDAO = new OrderDAO();
 
     public OrderBLL(){
         validators = new ArrayList<Validator<Order>>();
@@ -27,27 +28,9 @@ public class OrderBLL {
     }
 
     public Order findOrderByID(int id){
-        Order order = OrderDAO.findbyId(id);
+        Order order = orderDAO.findById(id);
         if(order == null){
             throw new NoSuchElementException("There is no order with id = " + id);
-        }
-
-        return order;
-    }
-
-    public Order findOrderByClient(int clientID){
-        Order order = OrderDAO.findByClient(clientID);
-        if(order == null){
-            throw new NoSuchElementException("Client " + clientID + " had no orders.");
-        }
-
-        return order;
-    }
-
-    public Order findOrderByProduct(int productID){
-        Order order = OrderDAO.findByProduct(productID);
-        if(order == null){
-            throw new NoSuchElementException("No product " + productID + " has been ordered.");
         }
 
         return order;
@@ -61,7 +44,7 @@ public class OrderBLL {
         QuantityValidator quantityValidator = new QuantityValidator();
         quantityValidator.validate(order);
 
-        int orderID = OrderDAO.insertOrder(order);
+        int orderID = orderDAO.insert(order);
         order.setId(orderID);
         try {
             printReceipt(order, orderID);
@@ -111,14 +94,14 @@ public class OrderBLL {
         QuantityValidator quantityValidator = new QuantityValidator();
         quantityValidator.validate(order);
 
-        return OrderDAO.updateOrder(order);
+        return orderDAO.update(order);
     }
 
     public int deleteOrder(int orderID){
-        return OrderDAO.deleteOrder(orderID);
+        return orderDAO.delete(orderID);
     }
 
     public List<Order> showAllOrders(){
-        return OrderDAO.showAllOrders();
+        return orderDAO.findAll();
     }
 }

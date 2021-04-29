@@ -44,9 +44,9 @@ public class ProductView {
     JTextField txtUpdateID = new JTextField(5);
     JLabel lblUpdateName = new JLabel("Name:");
     JTextField txtUpdateName = new JTextField(25);
-    JLabel lblUpdateQuantity = new JLabel("Email:");
+    JLabel lblUpdateQuantity = new JLabel("Quantity:");
     JTextField txtUpdateQuantity = new JTextField(25);
-    JLabel lblUpdatePrice = new JLabel("Telephone:");
+    JLabel lblUpdatePrice = new JLabel("Price:");
     JTextField txtUpdatePrice = new JTextField(25);
 
     JButton btnUpdate = new JButton("Update");

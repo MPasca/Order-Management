@@ -1,11 +1,13 @@
 package Model;
 
 public class Client {
-    private String name;
-    private String email;
-    private String address;
-    private String telephone;
-    private int id;
+    public String name;
+    public String email;
+    public String address;
+    public String telephone;
+    public int id;
+
+    public Client(){}
 
     public Client(String name, String email, String address, String telephone){
         this.name = name;
@@ -19,6 +21,26 @@ public class Client {
         this.name = name;
         this.email = email;
         this.address = address;
+        this.telephone = telephone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 

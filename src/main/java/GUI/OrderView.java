@@ -41,11 +41,11 @@ public class OrderView {
 
     JLabel lblUpdateID = new JLabel("ID: ");
     JTextField txtUpdateID = new JTextField(5);
-    JLabel lblUpdateClientID = new JLabel("Name:");
+    JLabel lblUpdateClientID = new JLabel("Client Id:");
     JTextField txtUpdateClientID = new JTextField(25);
-    JLabel lblUpdateProductID = new JLabel("Telephone:");
+    JLabel lblUpdateProductID = new JLabel("Product Id:");
     JTextField txtUpdateProductID = new JTextField(25);
-    JLabel lblUpdateQuantity = new JLabel("Email:");
+    JLabel lblUpdateQuantity = new JLabel("Quantity:");
     JTextField txtUpdateQuantity = new JTextField(25);
 
     JButton btnUpdate = new JButton("Update");

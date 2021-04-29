@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 
 public class ClientBLL {
     private List<Validator<Client>> validators;
+    ClientDAO clientDAO = new ClientDAO();
 
     public ClientBLL() {
         validators = new ArrayList<Validator<Client>>();
@@ -20,7 +21,7 @@ public class ClientBLL {
     }
 
     public Client findClientByID(int id){
-        Client client = ClientDAO.find(id);
+        Client client = clientDAO.findById(id);
         if(client == null){
             throw new NoSuchElementException("There is no client with id = " + id);
         }
@@ -28,21 +29,12 @@ public class ClientBLL {
         return client;
     }
 
-    public List<Client> findClientByName(String name){
-        List<Client> fetchedClients = ClientDAO.find(name);
-        if(fetchedClients == null){
-            throw new NoSuchElementException("There are no clients named: " + name);
-        }
-
-        return fetchedClients;
-    }
-
     public int insertClient(Client client){
         for(Validator<Client> v : validators){
             v.validate(client);
         }
 
-        return ClientDAO.insertClient(client);
+        return clientDAO.insert(client);
     }
 
     public int updateClient(Client client){
@@ -50,14 +42,14 @@ public class ClientBLL {
             v.validate(client);
         }
 
-        return ClientDAO.updateClient(client);
+        return clientDAO.update(client);
     }
 
     public int deleteClient(int clientID){
-        return ClientDAO.deleteClient(clientID);
+        return clientDAO.delete(clientID);
     }
 
     public List<Client> showAllClients(){
-        return ClientDAO.showAllClients();
+        return clientDAO.findAll();
     }
 }
