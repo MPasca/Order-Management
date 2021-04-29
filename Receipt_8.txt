@@ -1,0 +1,14 @@
+DATE: 29/04/2021 08:38:20
+
+Order 8 _________________ ClientID: 5
+	 Name: Jane Doe
+	 Email: abcd@abcd.com
+	 Address: Str Ceahlau, nr 77, Cluj-Napoca, Cluj
+	 Telephone: +40722222222
+
+Bought:
+4 _______________________ x1
+toDelete _____________ 2.34
+
+_________________________________________
+TOTAL: 2.34

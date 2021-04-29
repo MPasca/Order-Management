@@ -1,0 +1,13 @@
+DATE: 28/04/2021 19:31:34
+Order 6 _________________ ClientID: 1
+	 Name: John Doe
+	 Email: Some random street no 42
+	 Address: johnDoe@domain.com
+	 Telephone: 0712345678
+
+Bought:
+1 _______________________ x1
+test _____________ 0.99
+
+_________________________________________
+TOTAL: 0.99
