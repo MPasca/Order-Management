@@ -43,7 +43,7 @@ public class AbstractDAO<T>{
     /**
      * Find all list.
      *
-     * @return list list
+     * @return list
      */
     public List<T> findAll(){
         String findAllQuery = "SELECT * FROM `" + type.getSimpleName() + "`";
@@ -73,7 +73,7 @@ public class AbstractDAO<T>{
      * Find by id t.
      *
      * @param id the id
-     * @return t t
+     * @return t
      */
     public T findById(int id){
         Connection connection = ConnectionFactory.getConnection();
@@ -127,7 +127,7 @@ public class AbstractDAO<T>{
      * Insert int.
      *
      * @param t the t
-     * @return int int
+     * @return int
      */
     public int insert(T t) {
         Connection dbConnection = ConnectionFactory.getConnection();
@@ -181,7 +181,7 @@ public class AbstractDAO<T>{
      * Update int.
      *
      * @param t the t
-     * @return int int
+     * @return int
      */
     public int update(T t) {
         Connection dbConnection = ConnectionFactory.getConnection();
