@@ -11,10 +11,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * The type Order controller.
+ */
 public class OrderController {
+    /**
+     * The Order view.
+     */
     OrderView orderView;
+    /**
+     * The Order bll.
+     */
     OrderBLL orderBLL = new OrderBLL();
 
+    /**
+     * Instantiates a new Order controller.
+     *
+     * @param orderView the order view
+     */
     public OrderController(OrderView orderView){
         this.orderView = orderView;
         this.orderView.btnAdd.addActionListener(new AddListener());
@@ -22,6 +36,11 @@ public class OrderController {
         this.orderView.btnUpdate.addActionListener(new UpdateListener());
     }
 
+    /**
+     * Add order.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void addOrder() throws ExceptionIncorrectInput{
         if(orderView.cmbClients.getSelectedItem().equals("")){
             throw new ExceptionIncorrectInput(orderView.panelAdd, "orderView", "orderClientId");
@@ -44,6 +63,9 @@ public class OrderController {
         JOptionPane.showMessageDialog(orderView.panelAdd, "The order with id: " + orderId + " has been added to the DataBase.");
     }
 
+    /**
+     * Generate combo boxes.
+     */
     public void generateComboBoxes(){
         orderView.cmbClients.removeAllItems();
         ClientBLL clientBLL = new ClientBLL();
@@ -60,6 +82,9 @@ public class OrderController {
         }
     }
 
+    /**
+     * The type Add listener.
+     */
     class AddListener implements ActionListener{
 
         @Override
@@ -72,6 +97,11 @@ public class OrderController {
         }
     }
 
+    /**
+     * Delete order.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void deleteOrder() throws ExceptionIncorrectInput{
         if(orderView.txtRemoveSearchClientId.getText().isEmpty()){
             if(orderView.txtRemoveSearchID.getText().isEmpty()){
@@ -82,6 +112,9 @@ public class OrderController {
         }
     }
 
+    /**
+     * The type Delete listener.
+     */
     class DeleteListener implements ActionListener{
 
         @Override
@@ -94,6 +127,11 @@ public class OrderController {
         }
     }
 
+    /**
+     * Update order.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void updateOrder() throws ExceptionIncorrectInput{
         if(orderView.txtUpdateClientID.getText().isEmpty()){
             throw new ExceptionIncorrectInput(orderView.panelEdit, "orderView", "updateClientID");
@@ -118,6 +156,9 @@ public class OrderController {
     }
 
 
+    /**
+     * The type Update listener.
+     */
     class UpdateListener implements ActionListener{
 
         @Override
@@ -130,6 +171,9 @@ public class OrderController {
         }
     }
 
+    /**
+     * Show all.
+     */
     public void showAll(){
         String orderColumns[] = {"ID", "ClientId", "ProductId", "Quantity"};
         DefaultTableModel model = new DefaultTableModel(orderColumns, 0);

@@ -8,6 +8,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * The type Connection factory.
+ */
 public class ConnectionFactory {
 
     private static final Logger LOGGER = Logger.getLogger(ConnectionFactory.class.getName());
@@ -26,6 +29,10 @@ public class ConnectionFactory {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private Connection createConnection() {
         Connection connection = null;
         try {
@@ -37,10 +44,20 @@ public class ConnectionFactory {
         return connection;
     }
 
+    /**
+     * Gets connection.
+     *
+     * @return connection
+     */
     public static Connection getConnection() {
         return singleInstance.createConnection();
     }
 
+    /**
+     * Close.
+     *
+     * @param connection the connection
+     */
     public static void close(Connection connection) {
         if (connection != null) {
             try {
@@ -51,6 +68,11 @@ public class ConnectionFactory {
         }
     }
 
+    /**
+     * Close.
+     *
+     * @param statement the statement
+     */
     public static void close(Statement statement) {
         if (statement != null) {
             try {
@@ -61,6 +83,11 @@ public class ConnectionFactory {
         }
     }
 
+    /**
+     * Close.
+     *
+     * @param resultSet the result set
+     */
     public static void close(ResultSet resultSet) {
         if (resultSet != null) {
             try {

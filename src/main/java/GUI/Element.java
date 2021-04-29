@@ -4,10 +4,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * The type Element.
+ */
 public class Element {
+    /**
+     * The Colours.
+     */
     public ArrayList<Color> colours = new ArrayList<>();
+    /**
+     * The Fonts.
+     */
     public ArrayList<Font> fonts = new ArrayList<>();
 
+    /**
+     * Instantiates a new Element.
+     */
     public Element(){
         colours.add(Color.decode("#8B5D33"));   // coyote brown
         colours.add(Color.decode("#91785D"));   // pale chestnut

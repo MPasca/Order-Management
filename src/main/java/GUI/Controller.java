@@ -4,9 +4,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The type Controller.
+ */
 public class Controller {
+    /**
+     * The View.
+     */
     View view = new View();
 
+    /**
+     * Instantiates a new Controller.
+     */
     public Controller(){
         view.addClientListener(new ClientListener());
         view.addProductListener(new ProductListener());
@@ -32,6 +41,9 @@ public class Controller {
 
     }
 
+    /**
+     * The type Client listener.
+     */
     class ClientListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -41,6 +53,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Product listener.
+     */
     class ProductListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -50,6 +65,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Order listener.
+     */
     class OrderListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -59,6 +77,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Back client listener.
+     */
     class BackClientListener implements ActionListener{
 
         @Override
@@ -69,6 +90,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Back product listener.
+     */
     class BackProductListener implements ActionListener{
 
         @Override
@@ -79,6 +103,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Back order listener.
+     */
     class BackOrderListener implements ActionListener{
 
         @Override
@@ -89,6 +116,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Add client listener.
+     */
 // ------------------------- Client buttons
     class AddClientListener implements ActionListener{
         @Override
@@ -101,6 +131,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Remove client listener.
+     */
     class RemoveClientListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -112,6 +145,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Edit client listener.
+     */
     class EditClientListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -123,6 +159,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type View clients listener.
+     */
     class ViewClientsListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -136,6 +175,9 @@ public class Controller {
     }
 // ----------------------------------------
 
+    /**
+     * The type Add product listener.
+     */
 // ------------------------ Product buttons
     class AddProductListener implements ActionListener{
         @Override
@@ -148,6 +190,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Remove product listener.
+     */
     class RemoveProductListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -159,6 +204,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Edit product listener.
+     */
     class EditProductListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -170,6 +218,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type View products listener.
+     */
     class ViewProductsListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -182,6 +233,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Add order listener.
+     */
 // ------------------------ Order buttons
     class AddOrderListener implements ActionListener{
         @Override
@@ -195,6 +249,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Remove order listener.
+     */
     class RemoveOrderListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -206,6 +263,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type Edit order listener.
+     */
     class EditOrderListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -217,6 +277,9 @@ public class Controller {
         }
     }
 
+    /**
+     * The type View orders listener.
+     */
     class ViewOrdersListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {

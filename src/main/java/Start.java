@@ -4,7 +4,15 @@ import BLL.ProductBLL;
 import GUI.*;
 import Model.*;
 
+/**
+ * The type Start.
+ */
 public class Start {
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public static void main(String [] args){
         Controller controller = new Controller();
 /*

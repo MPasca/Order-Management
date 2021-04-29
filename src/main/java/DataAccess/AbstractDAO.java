@@ -11,19 +11,40 @@ import java.util.logging.Logger;
 
 import Connection.ConnectionFactory;
 
+/**
+ * The type Abstract dao.
+ *
+ * @param <T> the type parameter
+ */
 public class AbstractDAO<T>{
+    /**
+     * The constant LOGGER.
+     */
     protected static final Logger LOGGER = Logger.getLogger(AbstractDAO.class.getName());
 
     private final Class<T> type;
 
+    /**
+     * Instantiates a new Abstract dao.
+     */
     public AbstractDAO(){
         this.type = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
+    /**
+     *
+     * @param field
+     * @return
+     */
     private String createSelectQuery(String field){
         return "SELECT * FROM `" + type.getSimpleName() + "` WHERE " + field + "=?";
     }
 
+    /**
+     * Find all list.
+     *
+     * @return list list
+     */
     public List<T> findAll(){
         String findAllQuery = "SELECT * FROM `" + type.getSimpleName() + "`";
         Connection connection = null;
@@ -48,6 +69,12 @@ public class AbstractDAO<T>{
         return null;
     }
 
+    /**
+     * Find by id t.
+     *
+     * @param id the id
+     * @return t t
+     */
     public T findById(int id){
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement statement = null;
@@ -71,6 +98,11 @@ public class AbstractDAO<T>{
 
     }
 
+    /**
+     *
+     * @param resultSet
+     * @return
+     */
     private List<T> createObjects(ResultSet resultSet) {
         List<T> list = new ArrayList<T>();
 
@@ -91,6 +123,12 @@ public class AbstractDAO<T>{
         return list;
     }
 
+    /**
+     * Insert int.
+     *
+     * @param t the t
+     * @return int int
+     */
     public int insert(T t) {
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement insertStatement = null;
@@ -118,7 +156,6 @@ public class AbstractDAO<T>{
             insertValuesQuery.replace(insertValuesQuery.length() - 2, insertValuesQuery.length() - 1, ""); // to also get rid of the last comma
 
             insertQuery += "( " + insertColumns.toString() + ") VALUES (" + insertValuesQuery.toString() + ")";
-            System.out.println(insertQuery);
             insertStatement = dbConnection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             for(int i = 0; i < values.size(); i++){
                 insertStatement.setObject(i + 1, values.get(i));
@@ -140,6 +177,12 @@ public class AbstractDAO<T>{
         return insertedId;
     }
 
+    /**
+     * Update int.
+     *
+     * @param t the t
+     * @return int int
+     */
     public int update(T t) {
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement updateStatement = null;
@@ -183,6 +226,12 @@ public class AbstractDAO<T>{
         return updatedId;
     }
 
+    /**
+     * Delete int.
+     *
+     * @param toDeleteID the to delete id
+     * @return the int
+     */
     public int delete(int toDeleteID){
         Connection dbConnection = ConnectionFactory.getConnection();
         PreparedStatement deleteStatement = null;

@@ -10,10 +10,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * The type Client controller.
+ */
 public class ClientController {
+    /**
+     * The Client view.
+     */
     ClientView clientView;
+    /**
+     * The Client bll.
+     */
     ClientBLL clientBLL = new ClientBLL();
 
+    /**
+     * Instantiates a new Client controller.
+     *
+     * @param clientView the client view
+     */
     public ClientController(ClientView clientView){
         this.clientView = clientView;
         this.clientView.btnAdd.addActionListener(new AddListener());
@@ -21,6 +35,11 @@ public class ClientController {
         this.clientView.btnUpdate.addActionListener(new UpdateListener());
     }
 
+    /**
+     * Add client.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void addClient() throws ExceptionIncorrectInput{
         if(clientView.txtAddName.getText().isEmpty()){
             throw new ExceptionIncorrectInput(clientView.panelAdd, "ClientView", "clientName");
@@ -47,6 +66,9 @@ public class ClientController {
         JOptionPane.showMessageDialog(clientView.panelAdd, "The client with id: " + clientId + " has been added to the DataBase.");
     }
 
+    /**
+     * The type Add listener.
+     */
     class AddListener implements ActionListener{
 
         @Override
@@ -59,6 +81,11 @@ public class ClientController {
         }
     }
 
+    /**
+     * Delete client.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void deleteClient() throws ExceptionIncorrectInput{
         if(clientView.txtRemoveSearchName.getText().isEmpty()){
             if(clientView.txtRemoveSearchID.getText().isEmpty()){
@@ -69,6 +96,9 @@ public class ClientController {
         }
     }
 
+    /**
+     * The type Delete listener.
+     */
     class DeleteListener implements ActionListener{
 
         @Override
@@ -81,6 +111,11 @@ public class ClientController {
         }
     }
 
+    /**
+     * Update client.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void updateClient() throws ExceptionIncorrectInput{
         if(clientView.txtUpdateName.getText().isEmpty()){
             throw new ExceptionIncorrectInput(clientView.panelEdit, "clientView", "updateName");
@@ -108,6 +143,9 @@ public class ClientController {
         JOptionPane.showMessageDialog(clientView.panelEdit, "The client with id: " + clientBLL.updateClient(toUpdate) + " has been successfully updated.");
     }
 
+    /**
+     * The type Update listener.
+     */
     class UpdateListener implements ActionListener{
 
         @Override
@@ -120,6 +158,9 @@ public class ClientController {
         }
     }
 
+    /**
+     * Show all.
+     */
     public void showAll(){
 
         String columns[] = {"ID", "Name", "Email", "Address", "Telephone"};

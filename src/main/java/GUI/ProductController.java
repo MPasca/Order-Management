@@ -10,10 +10,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * The type Product controller.
+ */
 public class ProductController {
+    /**
+     * The Product view.
+     */
     ProductView productView;
+    /**
+     * The Product bll.
+     */
     ProductBLL productBLL = new ProductBLL();
 
+    /**
+     * Instantiates a new Product controller.
+     *
+     * @param ProductView the product view
+     */
     public ProductController(ProductView ProductView){
         this.productView = ProductView;
         this.productView.btnAdd.addActionListener(new AddListener());
@@ -21,6 +35,11 @@ public class ProductController {
         this.productView.btnUpdate.addActionListener(new UpdateListener());
     }
 
+    /**
+     * Add product.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void addProduct() throws ExceptionIncorrectInput{
         if(productView.txtAddName.getText().isEmpty()){
             throw new ExceptionIncorrectInput(productView.panelAdd, "productView", "productName");
@@ -42,6 +61,9 @@ public class ProductController {
         JOptionPane.showMessageDialog(productView.panelAdd, "The Product with id: " + ProductId + " has been added to the DataBase.");
     }
 
+    /**
+     * The type Add listener.
+     */
     class AddListener implements ActionListener{
 
         @Override
@@ -54,6 +76,11 @@ public class ProductController {
         }
     }
 
+    /**
+     * Delete product.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void deleteProduct() throws ExceptionIncorrectInput{
         if(productView.txtRemoveSearchName.getText().isEmpty()){
             if(productView.txtRemoveSearchID.getText().isEmpty()){
@@ -64,6 +91,9 @@ public class ProductController {
         }
     }
 
+    /**
+     * The type Delete listener.
+     */
     class DeleteListener implements ActionListener{
 
         @Override
@@ -76,6 +106,11 @@ public class ProductController {
         }
     }
 
+    /**
+     * Update product.
+     *
+     * @throws ExceptionIncorrectInput the exception incorrect input
+     */
     public void updateProduct() throws ExceptionIncorrectInput{
             if(productView.txtUpdateName.getText().isEmpty()){
                 throw new ExceptionIncorrectInput(productView.panelEdit, "productView", "updateName");
@@ -99,6 +134,9 @@ public class ProductController {
             JOptionPane.showMessageDialog(productView.panelEdit, "The product with id: " + productBLL.updateProduct(toUpdate) + " has been successfully updated.");
     }
 
+    /**
+     * The type Update listener.
+     */
     class UpdateListener implements ActionListener{
 
         @Override
@@ -111,6 +149,9 @@ public class ProductController {
         }
     }
 
+    /**
+     * Show all.
+     */
     public void showAll(){
         String productColumns[] = {"ID", "Name", "Quantity", "Price"};
         DefaultTableModel model = new DefaultTableModel(productColumns, 0);

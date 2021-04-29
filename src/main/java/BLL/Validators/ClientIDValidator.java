@@ -6,7 +6,13 @@ import Model.Order;
 
 import java.util.NoSuchElementException;
 
+/**
+ * The type Client id validator.
+ */
 public class ClientIDValidator implements Validator<Order> {
+    /**
+     * The Client dao.
+     */
     ClientDAO clientDAO = new ClientDAO();
     @Override
     public void validate(Order order) {

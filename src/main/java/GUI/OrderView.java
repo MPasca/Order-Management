@@ -4,56 +4,161 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * The type Order view.
+ */
 public class OrderView {
+    /**
+     * The Element.
+     */
     Element element = new Element();
 
+    /**
+     * The Order frame.
+     */
     JFrame orderFrame = new JFrame();
+    /**
+     * The Main panel.
+     */
     JPanel mainPanel = new JPanel();
+    /**
+     * The Panel add.
+     */
     JPanel panelAdd = new JPanel();
+    /**
+     * The Panel edit.
+     */
     JPanel panelEdit = new JPanel();
+    /**
+     * The Panel remove.
+     */
     JPanel panelRemove = new JPanel();
+    /**
+     * The Panel view.
+     */
     JPanel panelView = new JPanel();
 
-    //  ------------------------------------ panelAdd elements
+    /**
+     * The Lbl add title.
+     */
+//  ------------------------------------ panelAdd elements
     JLabel lblAddTitle = new JLabel("Add Order");
 
+    /**
+     * The Lbl add client id.
+     */
     JLabel lblAddClientId = new JLabel("Client Id:");
+    /**
+     * The Cmb clients.
+     */
     JComboBox<Integer> cmbClients = new JComboBox<>();
+    /**
+     * The Lbl add product id.
+     */
     JLabel lblAddProductId = new JLabel("Product Id:");
+    /**
+     * The Cmb products.
+     */
     JComboBox<Integer> cmbProducts = new JComboBox<>();
+    /**
+     * The Lbl add quantity.
+     */
     JLabel lblAddQuantity = new JLabel("Quantity:");
+    /**
+     * The Txt add quantity.
+     */
     JTextField txtAddQuantity = new JTextField(25);
 
+    /**
+     * The Btn add.
+     */
     JButton btnAdd = new JButton("Add");
 
-    // ------------------------------------- panelRemove elements
+    /**
+     * The Lbl remove title.
+     */
+// ------------------------------------- panelRemove elements
     JLabel lblRemoveTitle = new JLabel("Remove Order");
 
+    /**
+     * The Lbl remove search client id.
+     */
     JLabel lblRemoveSearchClientId = new JLabel("Delete by ClientId:");
+    /**
+     * The Txt remove search client id.
+     */
     JTextField txtRemoveSearchClientId = new JTextField(5);
+    /**
+     * The Lbl remove search id.
+     */
     JLabel lblRemoveSearchID = new JLabel("Delete by ID:");
+    /**
+     * The Txt remove search id.
+     */
     JTextField txtRemoveSearchID = new JTextField(25);
 
+    /**
+     * The Btn remove.
+     */
     JButton btnRemove = new JButton("Delete");
 
-    // ------------------------------------- panelEdit elements
+    /**
+     * The Lbl update title.
+     */
+// ------------------------------------- panelEdit elements
     JLabel lblUpdateTitle = new JLabel("Update Product");
 
+    /**
+     * The Lbl update id.
+     */
     JLabel lblUpdateID = new JLabel("ID: ");
+    /**
+     * The Txt update id.
+     */
     JTextField txtUpdateID = new JTextField(5);
+    /**
+     * The Lbl update client id.
+     */
     JLabel lblUpdateClientID = new JLabel("Client Id:");
+    /**
+     * The Txt update client id.
+     */
     JTextField txtUpdateClientID = new JTextField(25);
+    /**
+     * The Lbl update product id.
+     */
     JLabel lblUpdateProductID = new JLabel("Product Id:");
+    /**
+     * The Txt update product id.
+     */
     JTextField txtUpdateProductID = new JTextField(25);
+    /**
+     * The Lbl update quantity.
+     */
     JLabel lblUpdateQuantity = new JLabel("Quantity:");
+    /**
+     * The Txt update quantity.
+     */
     JTextField txtUpdateQuantity = new JTextField(25);
 
+    /**
+     * The Btn update.
+     */
     JButton btnUpdate = new JButton("Update");
 
-    // ------------------------------------- panelShow elements
+    /**
+     * The Lbl show all title.
+     */
+// ------------------------------------- panelShow elements
     JLabel lblShowAllTitle = new JLabel("All Orders");
+    /**
+     * The Table orders.
+     */
     JTable tableOrders = new JTable();
 
+    /**
+     * Instantiates a new Order view.
+     */
     public OrderView(){
         orderFrame.setBackground(element.colours.get(4));
 

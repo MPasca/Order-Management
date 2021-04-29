@@ -2,6 +2,9 @@ package BLL.Validators;
 
 import Model.Product;
 
+/**
+ * The type Price validator.
+ */
 public class PriceValidator implements Validator<Product> {
 
     @Override

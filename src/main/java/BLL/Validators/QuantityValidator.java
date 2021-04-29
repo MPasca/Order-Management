@@ -4,6 +4,9 @@ import BLL.ProductBLL;
 import Model.Order;
 import Model.Product;
 
+/**
+ * The type Quantity validator.
+ */
 public class QuantityValidator implements Validator<Object>{
 
     @Override

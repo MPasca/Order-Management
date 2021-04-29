@@ -4,6 +4,9 @@ import Model.Client;
 
 import java.util.regex.Pattern;
 
+/**
+ * The type Telephone validator.
+ */
 public class TelephoneValidator implements Validator<Client>{
     private static final String TELEPHONE_PATTERN = "(\\+4)?07[0-9]{8}";
 

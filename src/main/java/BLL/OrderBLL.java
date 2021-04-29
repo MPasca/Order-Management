@@ -17,16 +17,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * The type Order bll.
+ */
 public class OrderBLL {
     private List<Validator<Order>> validators;
+    /**
+     * The Order dao.
+     */
     OrderDAO orderDAO = new OrderDAO();
 
+    /**
+     * Instantiates a new Order bll.
+     */
     public OrderBLL(){
         validators = new ArrayList<Validator<Order>>();
         validators.add(new ClientIDValidator());
         validators.add(new ProductIDValidator());
     }
 
+    /**
+     * Find order by id order.
+     *
+     * @param id the id
+     * @return order order
+     */
     public Order findOrderByID(int id){
         Order order = orderDAO.findById(id);
         if(order == null){
@@ -36,6 +51,12 @@ public class OrderBLL {
         return order;
     }
 
+    /**
+     * Insert order int.
+     *
+     * @param order the order
+     * @return int int
+     */
     public int insertOrder(Order order){
         for(Validator<Order> v : validators){
             v.validate(order);
@@ -54,8 +75,17 @@ public class OrderBLL {
         return orderID;
     }
 
+    /**
+     * The Receipt.
+     */
     FileWriter receipt;
 
+    /**
+     *
+     * @param order
+     * @param orderID
+     * @throws IOException
+     */
     private void printReceipt(Order order, int orderID) throws IOException{
         receipt = new FileWriter("Receipt_" + orderID + ".txt");
         ClientBLL clientBLL = new ClientBLL();
@@ -86,6 +116,12 @@ public class OrderBLL {
         receipt.close();
     }
 
+    /**
+     * Update order int.
+     *
+     * @param order the order
+     * @return int int
+     */
     public int updateOrder(Order order){
         for(Validator<Order> v : validators){
             v.validate(order);
@@ -97,10 +133,21 @@ public class OrderBLL {
         return orderDAO.update(order);
     }
 
+    /**
+     * Delete order int.
+     *
+     * @param orderID the order id
+     * @return int int
+     */
     public int deleteOrder(int orderID){
         return orderDAO.delete(orderID);
     }
 
+    /**
+     * Show all orders list.
+     *
+     * @return list list
+     */
     public List<Order> showAllOrders(){
         return orderDAO.findAll();
     }

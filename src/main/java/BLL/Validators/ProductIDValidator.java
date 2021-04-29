@@ -6,7 +6,13 @@ import Model.Product;
 
 import java.util.NoSuchElementException;
 
+/**
+ * The type Product id validator.
+ */
 public class ProductIDValidator implements Validator<Order>{
+    /**
+     * The Product dao.
+     */
     ProductDAO productDAO = new ProductDAO();
     @Override
     public void validate(Order order) {

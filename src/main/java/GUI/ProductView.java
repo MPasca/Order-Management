@@ -5,57 +5,162 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * The type Product view.
+ */
 public class ProductView {
+    /**
+     * The Element.
+     */
     Element element = new Element();
 
+    /**
+     * The Product frame.
+     */
     JFrame productFrame = new JFrame();
+    /**
+     * The Main panel.
+     */
     JPanel mainPanel = new JPanel();
+    /**
+     * The Panel add.
+     */
     JPanel panelAdd = new JPanel();
+    /**
+     * The Panel edit.
+     */
     JPanel panelEdit = new JPanel();
+    /**
+     * The Panel remove.
+     */
     JPanel panelRemove = new JPanel();
+    /**
+     * The Panel view.
+     */
     JPanel panelView = new JPanel();
 
-    //  ------------------------------------ panelAdd elements
+    /**
+     * The Lbl add title.
+     */
+//  ------------------------------------ panelAdd elements
     JLabel lblAddTitle = new JLabel("Add Product");
 
+    /**
+     * The Lbl add name.
+     */
     JLabel lblAddName = new JLabel("Name:");
+    /**
+     * The Txt add name.
+     */
     JTextField txtAddName = new JTextField(25);
+    /**
+     * The Lbl add quantity.
+     */
     JLabel lblAddQuantity = new JLabel("Quantity:");
+    /**
+     * The Txt add quantity.
+     */
     JTextField txtAddQuantity = new JTextField(25);
+    /**
+     * The Lbl add price.
+     */
     JLabel lblAddPrice = new JLabel("Price:");
+    /**
+     * The Txt add price.
+     */
     JTextField txtAddPrice = new JTextField(25);
 
+    /**
+     * The Btn add.
+     */
     JButton btnAdd = new JButton("Add");
 
-    // ------------------------------------- panelRemove elements
+    /**
+     * The Lbl remove title.
+     */
+// ------------------------------------- panelRemove elements
     JLabel lblRemoveTitle = new JLabel("Remove Product");
 
+    /**
+     * The Lbl remove search name.
+     */
     JLabel lblRemoveSearchName = new JLabel("Delete by name:");
+    /**
+     * The Txt remove search name.
+     */
     JTextField txtRemoveSearchName = new JTextField(5);
+    /**
+     * The Lbl remove search id.
+     */
     JLabel lblRemoveSearchID = new JLabel("Delete by ID:");
+    /**
+     * The Txt remove search id.
+     */
     JTextField txtRemoveSearchID = new JTextField(25);
 
+    /**
+     * The Btn remove.
+     */
     JButton btnRemove = new JButton("Delete");
 
-    // ------------------------------------- panelEdit elements
+    /**
+     * The Lbl update title.
+     */
+// ------------------------------------- panelEdit elements
     JLabel lblUpdateTitle = new JLabel("Update Product");
 
+    /**
+     * The Lbl update id.
+     */
     JLabel lblUpdateID = new JLabel("ID: ");
+    /**
+     * The Txt update id.
+     */
     JTextField txtUpdateID = new JTextField(5);
+    /**
+     * The Lbl update name.
+     */
     JLabel lblUpdateName = new JLabel("Name:");
+    /**
+     * The Txt update name.
+     */
     JTextField txtUpdateName = new JTextField(25);
+    /**
+     * The Lbl update quantity.
+     */
     JLabel lblUpdateQuantity = new JLabel("Quantity:");
+    /**
+     * The Txt update quantity.
+     */
     JTextField txtUpdateQuantity = new JTextField(25);
+    /**
+     * The Lbl update price.
+     */
     JLabel lblUpdatePrice = new JLabel("Price:");
+    /**
+     * The Txt update price.
+     */
     JTextField txtUpdatePrice = new JTextField(25);
 
+    /**
+     * The Btn update.
+     */
     JButton btnUpdate = new JButton("Update");
 
-    // ------------------------------------- panelShow elements
+    /**
+     * The Lbl show all title.
+     */
+// ------------------------------------- panelShow elements
     JLabel lblShowAllTitle = new JLabel("All Products");
+    /**
+     * The Table products.
+     */
     JTable tableProducts = new JTable();
 
 
+    /**
+     * Instantiates a new Product view.
+     */
     public ProductView(){
         productFrame.setBackground(element.colours.get(4));
 

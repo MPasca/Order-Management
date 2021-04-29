@@ -4,62 +4,179 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * The type Client view.
+ */
 public class ClientView {
+    /**
+     * The Element.
+     */
     Element element = new Element();
 
+    /**
+     * The Client frame.
+     */
     JFrame clientFrame = new JFrame();
+    /**
+     * The Main panel.
+     */
     JPanel mainPanel = new JPanel();
+    /**
+     * The Panel add.
+     */
     JPanel panelAdd = new JPanel();
+    /**
+     * The Panel edit.
+     */
     JPanel panelEdit = new JPanel();
+    /**
+     * The Panel remove.
+     */
     JPanel panelRemove = new JPanel();
+    /**
+     * The Panel view.
+     */
     JPanel panelView = new JPanel();
 
+    /**
+     * The Lbl add title.
+     */
 //  ------------------------------------ panelAdd elements
     JLabel lblAddTitle = new JLabel("Add Client");
 
+    /**
+     * The Lbl add name.
+     */
     JLabel lblAddName = new JLabel("Name:");
+    /**
+     * The Txt add name.
+     */
     JTextField txtAddName = new JTextField(25);
+    /**
+     * The Lbl add email.
+     */
     JLabel lblAddEmail = new JLabel("Email:");
+    /**
+     * The Txt add email.
+     */
     JTextField txtAddEmail = new JTextField(25);
+    /**
+     * The Lbl add telephone.
+     */
     JLabel lblAddTelephone = new JLabel("Telephone:");
+    /**
+     * The Txt add telephone.
+     */
     JTextField txtAddTelephone = new JTextField(25);
+    /**
+     * The Lbl add address.
+     */
     JLabel lblAddAddress = new JLabel("Address:");
+    /**
+     * The Txt add address.
+     */
     JTextField txtAddAddress = new JTextField(25);
 
+    /**
+     * The Btn add.
+     */
     JButton btnAdd = new JButton("Add");
 
+    /**
+     * The Lbl remove title.
+     */
 // ------------------------------------- panelRemove elements
     JLabel lblRemoveTitle = new JLabel("Remove Client");
 
+    /**
+     * The Lbl remove search name.
+     */
     JLabel lblRemoveSearchName = new JLabel("Delete by name:");
+    /**
+     * The Txt remove search name.
+     */
     JTextField txtRemoveSearchName = new JTextField(5);
+    /**
+     * The Lbl remove search id.
+     */
     JLabel lblRemoveSearchID = new JLabel("Delete by ID:");
+    /**
+     * The Txt remove search id.
+     */
     JTextField txtRemoveSearchID = new JTextField(25);
 
+    /**
+     * The Btn remove.
+     */
     JButton btnRemove = new JButton("Delete");
 
+    /**
+     * The Lbl update title.
+     */
 // ------------------------------------- panelEdit elements
     JLabel lblUpdateTitle = new JLabel("Update Client");
 
+    /**
+     * The Lbl update id.
+     */
     JLabel lblUpdateID = new JLabel("ID: ");
+    /**
+     * The Txt update id.
+     */
     JTextField txtUpdateID = new JTextField(5);
+    /**
+     * The Lbl update name.
+     */
     JLabel lblUpdateName = new JLabel("Name:");
+    /**
+     * The Txt update name.
+     */
     JTextField txtUpdateName = new JTextField(25);
+    /**
+     * The Lbl update email.
+     */
     JLabel lblUpdateEmail = new JLabel("Email:");
+    /**
+     * The Txt update email.
+     */
     JTextField txtUpdateEmail = new JTextField(25);
+    /**
+     * The Lbl update telephone.
+     */
     JLabel lblUpdateTelephone = new JLabel("Telephone:");
+    /**
+     * The Txt update telephone.
+     */
     JTextField txtUpdateTelephone = new JTextField(25);
+    /**
+     * The Lbl update address.
+     */
     JLabel lblUpdateAddress = new JLabel("Address:");
+    /**
+     * The Txt update address.
+     */
     JTextField txtUpdateAddress = new JTextField(25);
 
+    /**
+     * The Btn update.
+     */
     JButton btnUpdate = new JButton("Update Client");
 
 
+    /**
+     * The Lbl show all title.
+     */
 // ------------------------------------- panelShow elements
     JLabel lblShowAllTitle = new JLabel("All Clients");
+    /**
+     * The Table clients.
+     */
     JTable tableClients = new JTable();
 
 
+    /**
+     * Instantiates a new Client view.
+     */
     public ClientView(){
         clientFrame.setBackground(element.colours.get(4));
 
